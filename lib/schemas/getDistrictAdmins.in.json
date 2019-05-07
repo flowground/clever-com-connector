@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "starting_after": {
+            "type": "string"
+        },
+        "ending_before": {
+            "type": "string"
+        },
+        "show_links": {
+            "type": "string"
+        }
+    }
+}

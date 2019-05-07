@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "limit": {
+            "type": "integer"
+        },
+        "starting_after": {
+            "type": "string"
+        },
+        "ending_before": {
+            "type": "string"
+        },
+        "where": {
+            "type": "string"
+        }
+    }
+}

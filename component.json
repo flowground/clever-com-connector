@@ -1,0 +1,799 @@
+{
+    "title": "Data",
+    "description": "Serves the Clever Data API",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/clever.com/1.2.0/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.clever.com/v1.2",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "oauth": {
+                "label": "oauth",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://clever.com/oauth/authorize",
+            "token_uri": "https://clever.com/oauth/tokens"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getContacts": {
+            "main": "./lib/actions/getContacts.js",
+            "title": "Returns a list of student contacts",
+            "description": "Returns a list of student contacts",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getContacts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getContact": {
+            "main": "./lib/actions/getContact.js",
+            "title": "Returns a specific student contact",
+            "description": "Returns a specific student contact",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDistrictForStudentContact": {
+            "main": "./lib/actions/getDistrictForStudentContact.js",
+            "title": "Returns the district for a student contact",
+            "description": "Returns the district for a student contact",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDistrictForStudentContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getStudentForContact": {
+            "main": "./lib/actions/getStudentForContact.js",
+            "title": "Returns the student for a student contact",
+            "description": "Returns the student for a student contact",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getStudentForContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDistrictAdmins": {
+            "main": "./lib/actions/getDistrictAdmins.js",
+            "title": "Returns a list of district admins",
+            "description": "Returns a list of district admins",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDistrictAdmins.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDistrictAdmin": {
+            "main": "./lib/actions/getDistrictAdmin.js",
+            "title": "Returns a specific district admin",
+            "description": "Returns a specific district admin",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDistrictAdmin.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDistricts": {
+            "main": "./lib/actions/getDistricts.js",
+            "title": "Returns a list of districts",
+            "description": "Returns a list of districts",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDistricts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDistrict": {
+            "main": "./lib/actions/getDistrict.js",
+            "title": "Returns a specific district",
+            "description": "Returns a specific district",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDistrict.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getAdminsForDistrict": {
+            "main": "./lib/actions/getAdminsForDistrict.js",
+            "title": "Returns the admins for a district",
+            "description": "Returns the admins for a district",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getAdminsForDistrict.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSchoolsForDistrict": {
+            "main": "./lib/actions/getSchoolsForDistrict.js",
+            "title": "Returns the schools for a district",
+            "description": "Returns the schools for a district",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSchoolsForDistrict.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSectionsForDistrict": {
+            "main": "./lib/actions/getSectionsForDistrict.js",
+            "title": "Returns the sections for a district",
+            "description": "Returns the sections for a district",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSectionsForDistrict.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDistrictStatus": {
+            "main": "./lib/actions/getDistrictStatus.js",
+            "title": "Returns the status of the district",
+            "description": "Returns the status of the district",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDistrictStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getStudentsForDistrict": {
+            "main": "./lib/actions/getStudentsForDistrict.js",
+            "title": "Returns the students for a district",
+            "description": "Returns the students for a district",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getStudentsForDistrict.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTeachersForDistrict": {
+            "main": "./lib/actions/getTeachersForDistrict.js",
+            "title": "Returns the teachers for a district",
+            "description": "Returns the teachers for a district",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTeachersForDistrict.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSchoolAdmins": {
+            "main": "./lib/actions/getSchoolAdmins.js",
+            "title": "Returns a list of school admins",
+            "description": "Returns a list of school admins",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSchoolAdmins.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSchoolAdmin": {
+            "main": "./lib/actions/getSchoolAdmin.js",
+            "title": "Returns a specific school admin",
+            "description": "Returns a specific school admin",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSchoolAdmin.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSchoolsForSchoolAdmin": {
+            "main": "./lib/actions/getSchoolsForSchoolAdmin.js",
+            "title": "Returns the schools for a school admin",
+            "description": "Returns the schools for a school admin",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSchoolsForSchoolAdmin.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSchools": {
+            "main": "./lib/actions/getSchools.js",
+            "title": "Returns a list of schools",
+            "description": "Returns a list of schools",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSchools.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSchool": {
+            "main": "./lib/actions/getSchool.js",
+            "title": "Returns a specific school",
+            "description": "Returns a specific school",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSchool.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDistrictForSchool": {
+            "main": "./lib/actions/getDistrictForSchool.js",
+            "title": "Returns the district for a school",
+            "description": "Returns the district for a school",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDistrictForSchool.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSectionsForSchool": {
+            "main": "./lib/actions/getSectionsForSchool.js",
+            "title": "Returns the sections for a school",
+            "description": "Returns the sections for a school",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSectionsForSchool.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getStudentsForSchool": {
+            "main": "./lib/actions/getStudentsForSchool.js",
+            "title": "Returns the students for a school",
+            "description": "Returns the students for a school",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getStudentsForSchool.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTeachersForSchool": {
+            "main": "./lib/actions/getTeachersForSchool.js",
+            "title": "Returns the teachers for a school",
+            "description": "Returns the teachers for a school",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTeachersForSchool.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSections": {
+            "main": "./lib/actions/getSections.js",
+            "title": "Returns a list of sections",
+            "description": "Returns a list of sections",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSections.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSection": {
+            "main": "./lib/actions/getSection.js",
+            "title": "Returns a specific section",
+            "description": "Returns a specific section",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDistrictForSection": {
+            "main": "./lib/actions/getDistrictForSection.js",
+            "title": "Returns the district for a section",
+            "description": "Returns the district for a section",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDistrictForSection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSchoolForSection": {
+            "main": "./lib/actions/getSchoolForSection.js",
+            "title": "Returns the school for a section",
+            "description": "Returns the school for a section",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSchoolForSection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getStudentsForSection": {
+            "main": "./lib/actions/getStudentsForSection.js",
+            "title": "Returns the students for a section",
+            "description": "Returns the students for a section",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getStudentsForSection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTeacherForSection": {
+            "main": "./lib/actions/getTeacherForSection.js",
+            "title": "Returns the primary teacher for a section",
+            "description": "Returns the primary teacher for a section",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTeacherForSection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTeachersForSection": {
+            "main": "./lib/actions/getTeachersForSection.js",
+            "title": "Returns the teachers for a section",
+            "description": "Returns the teachers for a section",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTeachersForSection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getStudents": {
+            "main": "./lib/actions/getStudents.js",
+            "title": "Returns a list of students",
+            "description": "Returns a list of students",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getStudents.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getStudent": {
+            "main": "./lib/actions/getStudent.js",
+            "title": "Returns a specific student",
+            "description": "Returns a specific student",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getStudent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getContactsForStudent": {
+            "main": "./lib/actions/getContactsForStudent.js",
+            "title": "Returns the contacts for a student",
+            "description": "Returns the contacts for a student",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getContactsForStudent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDistrictForStudent": {
+            "main": "./lib/actions/getDistrictForStudent.js",
+            "title": "Returns the district for a student",
+            "description": "Returns the district for a student",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDistrictForStudent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSchoolForStudent": {
+            "main": "./lib/actions/getSchoolForStudent.js",
+            "title": "Returns the primary school for a student",
+            "description": "Returns the primary school for a student",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSchoolForStudent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSectionsForStudent": {
+            "main": "./lib/actions/getSectionsForStudent.js",
+            "title": "Returns the sections for a student",
+            "description": "Returns the sections for a student",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSectionsForStudent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTeachersForStudent": {
+            "main": "./lib/actions/getTeachersForStudent.js",
+            "title": "Returns the teachers for a student",
+            "description": "Returns the teachers for a student",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTeachersForStudent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTeachers": {
+            "main": "./lib/actions/getTeachers.js",
+            "title": "Returns a list of teachers",
+            "description": "Returns a list of teachers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTeachers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getTeacher": {
+            "main": "./lib/actions/getTeacher.js",
+            "title": "Returns a specific teacher",
+            "description": "Returns a specific teacher",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getTeacher.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDistrictForTeacher": {
+            "main": "./lib/actions/getDistrictForTeacher.js",
+            "title": "Returns the district for a teacher",
+            "description": "Returns the district for a teacher",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDistrictForTeacher.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getGradeLevelsForTeacher": {
+            "main": "./lib/actions/getGradeLevelsForTeacher.js",
+            "title": "Returns the grade levels for sections a teacher teaches",
+            "description": "Returns the grade levels for sections a teacher teaches",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getGradeLevelsForTeacher.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSchoolForTeacher": {
+            "main": "./lib/actions/getSchoolForTeacher.js",
+            "title": "Retrieves school info for a teacher.",
+            "description": "Retrieves school info for a teacher.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSchoolForTeacher.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSectionsForTeacher": {
+            "main": "./lib/actions/getSectionsForTeacher.js",
+            "title": "Returns the sections for a teacher",
+            "description": "Returns the sections for a teacher",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSectionsForTeacher.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getStudentsForTeacher": {
+            "main": "./lib/actions/getStudentsForTeacher.js",
+            "title": "Returns the students for a teacher",
+            "description": "Returns the students for a teacher",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getStudentsForTeacher.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
